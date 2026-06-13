@@ -30,6 +30,7 @@ GRADIENT_NODES = [
     "纹理坐标"
     "混合颜色"
     "映射范围"
+    "Z深度钳制"
 ]
 
 GRADIENT_GROUP_NAME = "渐变"
@@ -455,6 +456,8 @@ class NODE_MT_gradient_node(Menu):
         op3.group_name = "混合颜色"
         op4 = layout.operator("node.style_add_custom_group", text="映射范围")
         op4.group_name = "映射范围"
+        op5 = layout.operator("node.style_add_custom_group", text="Z深度钳制")
+        op5.group_name = "Z深度钳制"
 
 class NODE_MT_custom_nodes(Menu):
     bl_label = "风格化节点"
