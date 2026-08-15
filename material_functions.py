@@ -38,6 +38,14 @@ TEXCOORD_NODE_NAME = "Texture Coordinate.002"
 FEEDBACK_URL = "https://b23.tv/hLvRt75"
 MATERIAL_SUFFIX = "_Material"
 
+# 光源拓展 BSDF 节点组列表（Shift+A → 风格化节点 → 光源拓展BSDF）
+LIGHT_EXTENDED_GROUPS = [
+    "原理化拓展光源",
+    "金属拓展光源",
+    "光泽拓展光源",
+    "漫射拓展光源",
+]
+
 
 # ==================== 节点组加载与复制辅助函数 ====================
 def ensure_node_group_loaded(group_name):
@@ -432,7 +440,7 @@ class NODE_OT_add_bulk_groups(Operator):
 
 # ==================== 节点编辑器菜单 ====================
 class NODE_MT_bulk_nodes(Menu):
-    bl_label = "风格化节点组1"
+    bl_label = "基础风格化节点组"
     bl_idname = "NODE_MT_bulk_nodes"
 
     def draw(self, context):
@@ -443,7 +451,7 @@ class NODE_MT_bulk_nodes(Menu):
 
 
 class NODE_MT_gradient_node(Menu):
-    bl_label = "风格化节点组2"
+    bl_label = "辅助节点组"
     bl_idname = "NODE_MT_gradient_node"
 
     def draw(self, context):
@@ -459,6 +467,16 @@ class NODE_MT_gradient_node(Menu):
         op5 = layout.operator("node.style_add_custom_group", text="Z深度钳制")
         op5.group_name = "Z深度钳制"
 
+class NODE_MT_light_extended(Menu):
+    bl_label = "光源拓展BSDF"
+    bl_idname = "NODE_MT_light_extended"
+
+    def draw(self, context):
+        layout = self.layout
+        for group_name in LIGHT_EXTENDED_GROUPS:
+            op = layout.operator("node.style_add_custom_group", text=group_name)
+            op.group_name = group_name
+
 class NODE_MT_custom_nodes(Menu):
     bl_label = "风格化节点"
     bl_idname = "NODE_MT_custom_nodes"
@@ -469,6 +487,7 @@ class NODE_MT_custom_nodes(Menu):
         op.group_name = NODE_GROUP_NAME
         layout.menu(NODE_MT_bulk_nodes.bl_idname)
         layout.menu(NODE_MT_gradient_node.bl_idname)
+        layout.menu(NODE_MT_light_extended.bl_idname)
 
 
 def menu_func(self, context):
@@ -515,6 +534,7 @@ classes = [
     NODE_OT_add_gradient_group,
     NODE_MT_bulk_nodes,
     NODE_MT_gradient_node,
+    NODE_MT_light_extended,
     NODE_MT_custom_nodes,
     VIEW3D_PT_custom_nodes,
     VIEW3D_PT_material_edit,

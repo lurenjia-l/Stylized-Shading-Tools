@@ -1,6 +1,6 @@
 # 风格化着色工具 / Stylized Shading Tools
 
-[![GPL-3.0 License](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](https://opensource.org/licenses/GPL-3.0)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 > **简体中文** 👉 [点此跳转](#中文)
 
@@ -110,4 +110,4 @@ This project is licensed under the **GPL-3.0 License**.
 
 ### 开源许可
 
-本项目采用 **GPL-3.0 许可证**。
+本项目采用 **MIT 许可证**。
