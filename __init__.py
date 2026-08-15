@@ -1,7 +1,7 @@
 bl_info = {
     "name": "风格化着色工具",
     "author": "路人甲",
-    "version": (5, 0, 1),
+    "version": (5, 1, 0),
     "blender": (5, 0, 0),
     "location": "View3D > Sidebar & Node Editor > Shift+A",
     "description": "一键为选中物体添加自定义风格化渲染材质节点组，以及一点别的功能",
